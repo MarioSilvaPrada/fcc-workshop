@@ -1,26 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import axios from 'axios';
+import dogs from './data/dogs';
+
+//Component
+import DogSelected from './components/DogSelected/DogSelected';
 
 const App = () => {
+  const [ dog, selectDog ] = useState('');
   
-  const apiUrl = 'https://api.icndb.com/jokes/random';
-  const [ joke, setJoke ] = useState({});
-
-  useEffect(() => {
-    axios
-      .get(apiUrl)
-      .then((res) => {
-        console.log(res.data.value);
-        this.setJoke({ joke: res.data.value });
-      })
-      .catch((error) => console.log(error));
-  });
-
-
   return (
     <div className='App'>
-      <p>ola</p>
+      <div className='all-dogs'>
+        {dogs.map((dog, i) => (
+          <div key={i} onClick={() => selectDog(dog.name)} className='dog-card'>
+            <h1>Name: {dog.name}</h1>
+            <p>Breed: {dog.breed}</p>
+            <p>Age: {dog.age}</p>
+          </div>
+        ))}
+      </div>
+      
+      <DogSelected name={dog}/> 
     </div>
   );
 };
