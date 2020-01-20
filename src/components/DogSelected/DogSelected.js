@@ -1,7 +1,7 @@
 import React from 'react';
 import './DogSelected.css';
 
-const DogSelected = ({ name }) => {
+const DogSelected = ({name}) => {
     if(name) {
         return <h1 className='isSelected'>You just selected {name}</h1>
     }

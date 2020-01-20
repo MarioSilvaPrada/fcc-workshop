@@ -1,0 +1,17 @@
+.all-dogs {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .dog-card {
+    border: 2px solid black;
+    padding: 10px 20px;
+    width: 200px;
+    cursor: pointer;
+    transition: 0.4s;
+    border-radius: 5px;
+  }
+  
+  .dog-card:hover {
+    transform: scale(1.1);
+  }
